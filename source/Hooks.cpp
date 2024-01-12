@@ -18,8 +18,7 @@ namespace Addresses
                 a_query->get()->GetFunctionCallInfo(ignore, scriptInfo, funcName, ignore2, ignore3);
 
                 RE::BSScript::StackFrame* stackFrame = a_stack->top;
-
-                 std::string stackTraceString = std::format("{}.{}", scriptInfo.get()->GetName(), funcName.c_str());
+                std::string stackTraceString = std::format("{}.{}", scriptInfo.get()->GetName(), funcName.c_str());
 
                 if (stackFrame) {
                     while (stackFrame) {
@@ -31,7 +30,6 @@ namespace Addresses
                         stackFrame = stackFrame->previousFrame;
                     }
                 }
-
                 logs::info("Trace: '{}'", stackTraceString);
             }
             return func(a_vm, a_stack, a_query, a_tasklet);
@@ -42,7 +40,7 @@ namespace Addresses
     void Hook()
     {
         REL::Relocation<std::uintptr_t> function{ RELOCATION_ID(98134, 0), REL::Relocate(0x18E, 0x0) };
-		stl::write_thunk_call<StackTracer>(function.address());
+        stl::write_thunk_call<StackTracer>(function.address());
         logs::info("Addresses::Hook :: Hooked Address!");
     }
 }
