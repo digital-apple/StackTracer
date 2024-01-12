@@ -10,8 +10,8 @@ namespace Addresses
         {
             if (a_stack != nullptr && a_query->get() != nullptr && a_query->get() != nullptr) {
                 RE::BSScript::Internal::IFuncCallQuery::CallType ignore;
-			    RE::BSTSmartPointer<RE::BSScript::ObjectTypeInfo> scriptInfo;
-			    RE::BSFixedString funcName;
+                RE::BSTSmartPointer<RE::BSScript::ObjectTypeInfo> scriptInfo;
+                RE::BSFixedString funcName;
                 RE::BSScript::Variable ignore2;
                 RE::BSScrapArray<RE::BSScript::Variable> ignore3;
 
